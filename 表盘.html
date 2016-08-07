@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<style >
+	*{
+		margin: 0;
+		padding: 0;
+
+	}
+	#clock{
+		height: 200px;
+		width: 200px;
+		border-radius:50%;
+		border:1px solid #000;
+		margin: 200px auto;
+		position: relative;
+		
+	}
+	#dial{
+		list-style: none;
+	}
+	#dial li{
+		position: absolute;
+		left: 100px;
+		width:2px;
+		height: 5px;
+		background-color: #000;
+		-webkit-transform-origin:0 100px;
+	}
+	#dial li:nth-child(5n+1){
+		height: 10px;
+	}
+	#hour{
+		width: 4px;
+		height: 30px;
+		background-color: #000;
+		position: absolute;
+		left: 99px;
+		top: 70px;
+		-webkit-transform-origin:bottom;
+
+
+	}
+	#minute{
+		width: 4px;
+		height: 50px;
+		background-color: #000;
+		position: absolute;
+		left: 99px;
+		top: 50px;
+		-webkit-transform-origin:bottom;
+	}
+	#seconds{
+		width: 2px;
+		height: 60px;
+		background-color: #f00;
+		position: absolute;
+		left: 99px;
+		top: 40px;
+		-webkit-transform-origin:bottom;
+	}
+	</style>
+</head>
+<body>
+<div id="clock">
+	<ul id="dial">
+		
+	</ul>
+	<div id="hour">
+		
+	</div>
+	<div id="minute">
+		
+	</div>
+	<div id="seconds">
+		
+	</div>
+</div>
+<script >
+	var oUl=document.getElementById("dial");
+	var oHour=document.getElementById("hour");
+	var oMinute=document.getElementById("minute");
+	var oSeconds=document.getElementById("seconds");
+	var html="";
+
+	for(var i=0;i<60;i++){
+		html+='<li style ="-webkit-transform:rotate('+6*i+'deg);"></li>';
+	}
+	
+	oUl.innerHTML=html;
+	function run(){
+	var date =new Date();
+	
+	var seconds=date.getSeconds();
+
+	
+	var minute=date.getMinutes();
+	var hour=date.getHours();
+	oSeconds.style.webkitTransform='rotate('+seconds*6+'deg)';oMinute.style.webkitTransform='rotate('+(minute*6+seconds*0.1)+'deg)';
+	oHour.style.webkitTransform='rotate('+(hour*30+minute*0.5)+'deg)';
+	}
+	
+	
+	setInterval(run,1000);
+	
+</script>
+</body>
+</html>
