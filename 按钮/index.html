@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<style >
+	#continer{
+		width: 50px;
+		height: 50px;
+		position: fixed;
+		top:300px;
+		left: 300px;
+	}	
+	img{
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		-webkit-transition:all 1s linear;
+		-Moz-transition:all 1s linear;
+		-Ms-transition:all 1s linear;
+		-O-transition:all 1s linear;
+		transition:all 1s linear;
+
+	}
+	#home{
+		width: 50px;
+		height: 50px;	
+		position: absolute;
+		top:0;
+		left: 0;
+		-webkit-transition:all 1s linear;
+		-Moz-transition:all 1s linear;
+		-Ms-transition:all 1s linear;
+		-O-transition:all 1s linear;
+		transition:all 1s linear;
+	}
+
+	</style>
+</head>
+<body>
+<div id="continer">
+	<div id="menu">
+		 <img src="img/close.png" alt=""/>
+            <img src="img/full.png" alt=""/>
+            <img src="img/open.png" alt=""/>
+            <img src="img/prev.png" alt=""/>
+            <img src="img/refresh.png" alt=""/>
+	</div>
+	  <div id="home">
+            <img src="img/home.png" alt=""/>
+        </div>
+</div>
+<script >
+(function(){
+	var oHome=document.querySelector("#home");
+	var oMenu=document.querySelector("#menu");
+	var aImg =oMenu.querySelectorAll("img");
+	
+	var isClick=false;
+	 var currentTransform = '';
+	oHome.addEventListener("click",function(){
+		
+		if(isClick){
+			setStyle(this,"transform",'rotate(0deg)');
+			for(var i=0;i<aImg.length;i++){
+				setStyle(aImg[i],'transitionDelay',i*50 +"ms");
+				setStyle(aImg[i],'transform',"translate(0,0) rotate(0deg) scale(1)");
+			}
+		}else{
+			 
+			setStyle(this,"transform",'rotate(-360deg)');
+			for(var i=0;i<aImg.length;i++){
+				var x=-150*Math.cos((22.5*i)*Math.PI/180);
+				var y=-150*Math.sin((22.5*i)*Math.PI/180);
+				   setStyle(aImg[i],'transitionDelay',(aImg.length-i)*50 +"ms");
+				setStyle(aImg[i],'transform',"translate("+x+'px,'+y+'px) rotate(-360deg) scale(1)');
+					
+			}
+			
+		}
+		isClick=!isClick;
+		
+	},false);
+	for(var i=0;i<aImg.length;i++){
+			
+			aImg[i].addEventListener("click",clickhandle,false);
+	}
+	function clickhandle(){
+	
+		currentTransform=this.style.transform;
+
+			setStyle(this,'transform',currentTransform+" scale(2)");
+				this.addEventListener('webkitTransitionEnd',fn,false);
+
+	}
+	function fn(){
+		console
+		setStyle(this,'transform',currentTransform);
+		// this.removeEventListener('webkitTransitionEnd',fn);
+		  this.removeEventListener('webkitTransitionEnd', fn);
+	}
+	
+           function setStyle(elem, prop, value){
+                ['Webkit', 'Moz', 'Ms', 'O', ''].forEach(function(prefix){
+                    elem.style[prefix + prop.charAt(0).toUpperCase() + prop.substring(1)] = value;
+                });
+            }
+
+	function setStyle(elem,prop,val){
+
+		["Webkit","Moz","Ms","O",""].forEach(function(prefix){
+			elem.style[prefix+prop.charAt(0).toUpperCase()+prop.substring(1)]=val;
+
+		});
+	}
+
+})();
+	
+	
+</script>
+</body>
+</html>
