@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<style >
+	body{
+		-webkit-perspective:800px;
+		-webkit-perspective-origin:50% -95%;
+	}
+		#continer{
+			 width: 125px;
+            height: 125px;
+            margin: 200px auto;
+            -webkit-transition:all 1s linear;
+            -webkit-transform-style:preserve-3d;
+		}
+		 #continer img{
+		 	 width: 125px;
+            height: 125px;
+            position: absolute;
+             -webkit-transition:all 1s linear;
+
+		 }
+	</style>
+</head>
+<body>
+ <div id="continer"></div>
+ <script >
+ 	var oContiner=document.getElementById("continer");
+
+ 	var count=0;
+ 	var index=0;
+ 	for(var i=0;i<9;i++){
+ 		var img=new Image();
+ 		img.onload=function(){
+ 			count++;
+ 			if(count==9){
+ 				var aImg=oContiner.querySelectorAll("img");
+ 			for(var i=0;i<9;i++){
+ 				(function(idx){
+ 		setTimeout(function(){
+ 			console.log(aImg[idx]);
+ 					aImg[idx].style.WebkitTransform="rotateY("+40*(9-idx)+"deg) translateZ(200px)";
+ 				},(9-idx)*100);
+
+ 				})(i);
+ 				
+ 				}
+
+ 			}
+ 		}
+ 		img.src="img/thumbs/"+(i+1)+".jpg";
+ 		oContiner.appendChild(img);
+
+ 	}
+ 	oContiner.addEventListener("click",function(){
+ 		index++;
+ 		oContiner.style.transform="rotateY("+40*index+"deg)";
+ 	},false)
+ </script>
+</body>
+</html>
