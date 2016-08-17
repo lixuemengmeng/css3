@@ -1,0 +1,256 @@
+/*********通用开始*********/
+*{
+	margin: 0;
+	padding: 0;
+
+}
+img{
+	border: 0;
+}
+ul,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/**********通用结束*********/
+html{
+	font-size:14px;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	
+}
+/**************header开始*******/
+
+#header{
+	height: 100px;
+	width: 100%;
+	background-color: #ccc;
+	display: -webkit-box;
+	position: relative;
+	/*z-index: 1;*/
+
+
+}
+#header-left{
+width: 40px;
+height: 46px;
+margin-top: 27px;
+margin-top: 27px;
+padding-left: 40px;
+
+
+
+}
+#header-left a{
+	opacity: .3;
+transition: opacity 1s linear;
+color: #000;
+}
+#header-left a:hover{
+	opacity: 1;
+	font-size: 14px;
+}
+#header-img{
+	height: 100%;
+	-webkit-box-flex:1;
+	position: relative;
+}
+
+#img{
+ 	width:73px;
+	height: 73px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	margin-top: -36px;
+	margin-left: -36px;
+	background: url("../img/logo.svg") no-repeat center ;
+	background-size: contain;
+	
+}
+#header-right{
+	width: 100px;
+	height: 46px;
+	margin-right: 40px;
+	margin-top: 27px;	
+	font-size: 1.2rem;
+
+	
+}
+#header-right a{
+	color: #967a50;
+}
+
+
+#mask-div{
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	display: none;
+}
+#mask-aside{
+	width: 0;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background:#000;
+	z-index: 100;
+
+	display: none;
+	
+	transition: all 1s linear;
+	
+
+
+}
+#mask-title{
+	width: 270px;
+	height: 114px;
+	border-bottom: 1px solid rgb(82,82,82);
+}
+
+#mask-title a{
+	width: 240px;
+	height: 27px;
+	display: block;
+	padding: 10px 15px 10px 15px;
+	 color: #b89f7a;
+	 
+	 font-size: 14px;
+	  cursor: pointer;
+
+}
+#mask-title a:hover{
+	color: #fff;
+}
+
+#mask-aside-ul li a{
+	width: 240px;
+	height: 27px;
+	display: block;
+	padding: 10px 15px 10px 15px;
+	color: #fff;
+	 font-size: 14px;
+	 cursor: pointer;
+	 white-space: nowrap;
+}
+}
+#mask-aside-ul li a:hover{
+	color: #b89f7a;
+}
+.selected-ul{
+	display: none;
+	width: 230px;
+	height: 27px;
+	transition: all 1s linear;
+
+
+}
+#mask-aside-ul .selected-ul li a{
+	width: 230px;
+	height: 27px;
+	display: block;
+	padding: 5px 15px 5px 25px;
+	color: #aaaaaa;
+
+
+}
+.select{
+
+background: url("../img/menu_icon_right.png") no-repeat center right;
+
+}
+
+/**************header结束*********
+/****************banner开始***********/
+#banner{
+	height: 518px;
+	width: 100%;
+	background: url("../img/homepage-kv-desktop.jpg") no-repeat center;
+	-webkit-background-size:cover;
+}
+/****************banner结束***********/
+/**********reader开始*************/
+#reader-img{
+	height: 149px;
+	width: 100%;
+	background: url("../img/rewards.jpg") no-repeat ;
+}
+#reader-div{
+	height: 210px;
+	width: 750px;
+	padding: 80px 0px 100px 0px;
+	background: red;
+	margin: 0 auto;
+}
+#reader-div h2{
+	height: 38px;
+	width: 750px;
+	margin: 20px 0 10px 0;
+	background: green;
+	font-size: 2.1rem;
+    font-weight: 400;
+    line-height: 38px;
+    color: #fffffe;
+    text-align: center;
+}
+#reader-div p{
+	height: 32px;
+	width: 750px;
+	margin-bottom: 14px;
+	background: blue;
+	color: #999;
+	font-size: 1.3rem;
+	text-align: center;
+	line-height: 32px;
+}
+#reader-a{
+	height: 50px;
+	width: 750px;
+	background: yellow;
+}
+/*#reader-a #sign{
+	width: 
+}*/
+/**********reader结束*************/
+@media (max-width: 767px){
+	#header-left{
+		margin-left: 20px;
+	}
+	#header-right{
+		margin-right: 20px;
+	}
+	#banner{
+		background: url("../img/homepage-kv-mobile.jpg") no-repeat center;
+		width: 100%;
+		height: 0;
+		padding-top: 80%;
+		-webkit-background-size:cover;
+
+	}
+
+	html{
+		font-size: 12px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

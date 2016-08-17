@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>星巴克</title>
+</head>
+<body>
+<div id="header">
+
+	<div id="header-left">
+	<div id="header-left-a"><a href="#">
+	<img src="img/menu_icon.svg"><br/>
+		<span>菜单</span>
+		</a></div>
+		
+	</div>
+	<div id="header-img">
+		<div id="img">
+			
+		</div>
+	</div>
+	<div id="header-right">
+	<span>星享俱乐部</span><br/><br/>
+	<a href="#">登录</a>
+	<span>或</span>	
+	<a href="#">注册</a>
+		
+	</div>
+		
+
+	</div>
+	<div id="mask-aside">
+			<div id="mask-title">
+				<span><a href="#">English</a></span>
+				<span><a href="#">星巴克门店</a></span>
+			</div>
+			<ul id="mask-aside-ul">
+				<li><a href="#">首页</a></li>
+				<li><a href="#" class="select">新品推荐</a>
+				<ul class="selected-ul">
+					<li><a href="#">星巴克月饼</a></li>
+				<li ><a href="#">当季月饼</a></li>
+				</ul>
+				</li>
+				<li><a href="#">星享俱乐部</a></li>
+				<li><a href="#">星巴克移动应用</a></li>
+				<li><a href="#">星礼卡</a></li>
+				<li><a href="#" class="select">咖啡文化</a>
+					<ul class="selected-ul">
+					<li ><a href="#">咖啡文化</a></li>
+				<li ><a href="#">星巴克臻选咖啡</a></li>
+				<li ><a href="#">如何冲泡咖啡</a></li>
+				</ul>
+				</li>
+				<li><a href="#" class="select">饮品美食</a>
+				<ul class="selected-ul">
+					<li ><a href="#">饮品</a></li>
+				<li ><a href="#">星巴克咖啡</a></li>
+				<li ><a href="#">星巴克美食</a></li>
+				</ul></li>
+				<li><a href="#" class="select">关于我们</a>
+				<ul class="selected-ul">
+					<li ><a href="#">饮品</a></li>
+				<li ><a href="#">星巴克咖啡</a></li>
+				<li ><a href="#">星巴克美食</a></li>
+				</ul></li>
+				<li><a href="#" class="select">帮助中心</a>
+				<ul class="selected-ul">
+					<li ><a href="#">饮品</a></li>
+				<li ><a href="#">星巴克咖啡</a></li>
+				<li ><a href="#">星巴克美食</a></li>
+				</ul></li>
+
+			</ul>
+		</div >
+
+<div id="mask-div"></div>
+	<div id="banner">
+		
+	</div>
+	<div id="reader-img">
+		
+	</div>
+	<div id="reader-div">
+		<h2>星享俱乐部</h2>
+		<p>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</p>
+		<div id="reader-a">
+		<a href="#" id="sign">注册</a>
+		<a href="#" id="land">登录</a>
+		</div>
+	</div>
+
+<script>
+ 	function isPc(){
+ 		var ua=navigator.userAgent;
+ 		console.log(ua);
+ 		if(/iPhone|iPad|mobile|Android|phone/gi.test(ua)){
+ 			return false;
+
+ 		}
+ 		return true;
+ 	}
+ 	
+ 	
+	var oScript=document.createElement("script");
+	oScript.onload=function(){
+		var oIndexScript=document.createElement("script");
+		oIndexScript.src="js/index.js";
+		document.body.appendChild(oIndexScript);
+
+	}
+	oScript.src=isPc()==true ? "js/jquery-1.12.4.min.js" : "js/zepto.min.js";
+	document.body.appendChild(oScript);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
