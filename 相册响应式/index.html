@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta charset="utf-8">
+	<title></title>
+	<style >
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			border: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		body{
+			background: #000;
+		}
+		#continer div{
+			float: left;
+			margin-right: 2px;
+		}
+		#continer div:nth-child(3n){
+			margin-right: 0;
+		}
+		#big-image{
+			width:100%;
+			height: 100%;
+			position: absolute;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<div id="continer"></div>
+<div id="big-image"></div>
+<script src="zepto.min.js"></script>
+<script >
+	$(function(){
+		var $oContiner=$("#continer");
+		var $oBigImg=$("#big-image");
+		var NUM=9;
+		var count=0;
+		var ipandding=2;
+		var idx=0;
+		var index=0;
+
+		for(var i=0;i<NUM;i++){
+			
+			var oImg=new Image();
+			oImg.onload=function(){
+				count++;
+				if(count==NUM){
+  					loadsuccess();
+				}
+			}
+			oImg.src="img/thumbs/"+(i+1)+".png";
+
+		
+
+		}
+		function loadsuccess(){
+			for(var i=0;i<NUM;i++){
+
+				var oDiv=document.createElement("div");
+				$oContiner.append(oDiv);
+				oDiv.style.background="url(img/thumbs/"+(i+1)+".png) no-repeat";
+				oDiv.idx=i;
+			}
+			var iclientWidth=$(document.body).width();
+				$("div",$oContiner).css({
+					width:(iclientWidth-ipandding*2)/3,
+					height:(iclientWidth-ipandding*2)/3,
+					
+				});
+				$oContiner.on("tap","div",function(){
+					$oContiner.hide();
+					changeImg(this.idx+1);
+							$oBigImg.show();
+				 });
+				$oBigImg.on("tap",function(){
+					$oBigImg.hide();
+					$oContiner.show();
+
+				}).on("swipeLeft",function(){
+
+					index++;
+					if(index==NUM){
+						index=0;
+					}
+					changeImg(index);
+
+				}).on("swipeRight",function(){
+					index--;
+					if(index==-1){
+						index=NUM-1;
+					}
+					changeImg(index);
+
+				});
+
+		}
+		function changeImg(src){
+			$oBigImg.css(
+					{
+						background:"url(img/"+(src)+".png) no-repeat",
+						backgroundSize : 'contain'
+					});
+		}
+		
+	});
+</script>
+</body>
+</html>
